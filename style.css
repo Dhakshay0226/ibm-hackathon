@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --bg: #1B2A22;
+  --panel: #24352B;
+  --panel-raised: #2C3F33;
+  --ink: #F1EDE2;
+  --ink-muted: #9FB0A4;
+  --chalk: #E8C468;
+  --rule: #B5533C;
+  --line: #3D4F42;
+  --radius: 3px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+header {
+  padding: 3rem 2rem 2rem 4.5rem;
+  position: relative;
+  border-bottom: 1px solid var(--line);
+}
+
+/* ruled-paper margin line */
+header::before, main::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 2.75rem;
+  width: 1px;
+  background: var(--rule);
+  opacity: 0.55;
+}
+
+header h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 2.4rem;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.tagline {
+  color: var(--ink-muted);
+  margin: 0.4rem 0 0;
+  font-size: 1.02rem;
+  max-width: 44ch;
+}
+
+main {
+  position: relative;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 2rem 2rem 4rem 4.5rem;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.6rem 1.8rem;
+  margin-bottom: 1.6rem;
+}
+
+.card h2 {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 1.3rem;
+  margin: 0 0 1rem;
+  color: var(--chalk);
+}
+
+textarea {
+  width: 100%;
+  min-height: 140px;
+  background: var(--bg);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 0.8rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  resize: vertical;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 0.9rem;
+  flex-wrap: wrap;
+}
+
+label {
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+input[type="text"], input[type="number"], select {
+  background: var(--bg);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 0.45rem 0.6rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+}
+
+input[type="number"] { width: 4.5rem; }
+input[type="text"] { flex: 1; min-width: 200px; }
+
+button {
+  background: var(--chalk);
+  color: #1B2A22;
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.55rem 1.1rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+button:hover { background: #F0D488; }
+button:disabled { opacity: 0.5; cursor: wait; }
+
+.status {
+  color: var(--ink-muted);
+  font-size: 0.85rem;
+  min-height: 1.2em;
+}
+
+.tabs {
+  display: flex;
+  gap: 0.3rem;
+  margin: 0 0 -1px;
+}
+
+.tab-btn {
+  background: transparent;
+  color: var(--ink-muted);
+  border: 1px solid var(--line);
+  border-bottom: none;
+  border-radius: var(--radius) var(--radius) 0 0;
+  padding: 0.6rem 1.1rem;
+  font-weight: 500;
+}
+
+.tab-btn.active {
+  background: var(--panel);
+  color: var(--chalk);
+  border-color: var(--line);
+}
+
+.tab-panel { display: none; border-radius: 0 var(--radius) var(--radius) var(--radius); }
+.tab-panel.active { display: block; }
+
+.output {
+  margin-top: 1.2rem;
+  font-size: 0.95rem;
+  white-space: pre-wrap;
+}
+
+.output:empty { display: none; }
+
+.quiz-q {
+  background: var(--panel-raised);
+  border-radius: var(--radius);
+  padding: 1rem 1.1rem;
+  margin-bottom: 0.9rem;
+}
+
+.quiz-q p.question { font-weight: 600; margin: 0 0 0.6rem; }
+
+.quiz-opt {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  padding: 0.5rem 0.7rem;
+  margin-bottom: 0.4rem;
+  border-radius: var(--radius);
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.quiz-opt.correct { border-color: #6FA37A; background: #223D2A; }
+.quiz-opt.incorrect { border-color: var(--rule); background: #3D2723; }
+.quiz-explain { color: var(--ink-muted); font-size: 0.85rem; margin-top: 0.5rem; }
+
+.plan-day {
+  border-left: 2px solid var(--chalk);
+  padding-left: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.plan-day h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 1rem;
+  margin: 0 0 0.3rem;
+}
+
+.chat-window {
+  max-height: 320px;
+  overflow-y: auto;
+  margin-bottom: 1rem;
+}
+
+.chat-msg { padding: 0.6rem 0.8rem; border-radius: var(--radius); margin-bottom: 0.5rem; font-size: 0.92rem; }
+.chat-msg.user { background: var(--panel-raised); }
+.chat-msg.assistant { background: var(--bg); border: 1px solid var(--line); }
+
+@media (max-width: 600px) {
+  header, main { padding-left: 2.2rem; }
+  header::before, main::before { left: 1.4rem; }
+}

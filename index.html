@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Study Buddy — AI Learning Companion</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>📚 Study Buddy</h1>
+    <p class="tagline">Upload notes → get explanations, quizzes, and a revision plan</p>
+  </header>
+
+  <main>
+    <section id="upload-section" class="card">
+      <h2>1. Add your notes</h2>
+      <textarea id="notesInput" placeholder="Paste your notes / syllabus text here..."></textarea>
+      <div class="row">
+        <input type="file" id="fileInput" accept=".txt,.md,.pdf" />
+        <button id="uploadBtn">Load file</button>
+      </div>
+      <p id="notesStatus" class="status"></p>
+    </section>
+
+    <nav class="tabs">
+      <button class="tab-btn active" data-tab="explain">Explain</button>
+      <button class="tab-btn" data-tab="quiz">Quiz</button>
+      <button class="tab-btn" data-tab="plan">Revision Plan</button>
+      <button class="tab-btn" data-tab="doubt">Ask a Doubt</button>
+    </nav>
+
+    <section id="explain" class="tab-panel card active">
+      <h2>2. Simplified Explanation</h2>
+      <div class="row">
+        <label>Level:
+          <select id="levelSelect">
+            <option value="eli10">Explain like I'm 10</option>
+            <option value="eli-undergrad">Undergrad level</option>
+            <option value="exam-crunch">Exam crunch bullets</option>
+          </select>
+        </label>
+        <button id="explainBtn">Generate</button>
+      </div>
+      <div id="explainOutput" class="output"></div>
+    </section>
+
+    <section id="quiz" class="tab-panel card">
+      <h2>Quiz Yourself</h2>
+      <div class="row">
+        <label># Questions <input type="number" id="numQuestions" value="5" min="1" max="15" /></label>
+        <label>Difficulty
+          <select id="difficultySelect">
+            <option value="easy">Easy</option>
+            <option value="medium" selected>Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+        </label>
+        <button id="quizBtn">Generate Quiz</button>
+      </div>
+      <div id="quizOutput" class="output"></div>
+    </section>
+
+    <section id="plan" class="tab-panel card">
+      <h2>Revision Plan</h2>
+      <div class="row">
+        <label>Days left <input type="number" id="planDays" value="7" min="1" max="60" /></label>
+        <label>Hours/day <input type="number" id="planHours" value="2" min="1" max="12" /></label>
+        <button id="planBtn">Generate Plan</button>
+      </div>
+      <div id="planOutput" class="output"></div>
+    </section>
+
+    <section id="doubt" class="tab-panel card">
+      <h2>Doubt-Solving Chat</h2>
+      <div id="chatWindow" class="chat-window"></div>
+      <div class="row">
+        <input type="text" id="doubtInput" placeholder="Ask something about your notes..." />
+        <button id="doubtBtn">Ask</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
